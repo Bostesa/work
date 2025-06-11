@@ -1,0 +1,364 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Home Page Styles */
+.home-page {
+  min-height: 100vh;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hero-header {
+  text-align: center;
+  padding: 60px 0 40px;
+  background: linear-gradient(135deg, #004879 0%, #0066cc 100%);
+  color: white;
+  margin: -20px -20px 40px -20px;
+}
+
+.hero-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.hero-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.main-content {
+  padding-bottom: 120px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.hero-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #004879;
+}
+
+.hero-section > p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+  color: #004879;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Eno Chatbot Logo - Capital One Style */
+.eno-chatbot-container {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.eno-logo {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eno-circle {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #004879 0%, #0066cc 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 72, 121, 0.3);
+  transition: all 0.3s ease;
+  border: 3px solid white;
+}
+
+.eno-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(0, 72, 121, 0.4);
+}
+
+.eno-text {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+
+.chat-bubble {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 12px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  font-size: 14px;
+  color: #333;
+  animation: fadeInUp 0.3s ease;
+}
+
+.chat-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: white;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Chatbot Page Styles */
+.chatbot-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+}
+
+.chatbot-header {
+  background: linear-gradient(135deg, #004879 0%, #0066cc 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.eno-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.eno-avatar {
+  width: 50px;
+  height: 50px;
+  background: white;
+  color: #004879;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.eno-header h2 {
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 70%;
+  padding: 15px 20px;
+  border-radius: 20px;
+  line-height: 1.5;
+}
+
+.message.user .message-content {
+  background: linear-gradient(135deg, #004879 0%, #0066cc 100%);
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.message.bot .message-content {
+  background: white;
+  color: #333;
+  border: 1px solid #e0e0e0;
+  border-bottom-left-radius: 5px;
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.message-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  background: #f8f9fa;
+}
+
+.send-button {
+  background: linear-gradient(135deg, #004879 0%, #0066cc 100%);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.send-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 72, 121, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-header h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+  }
+  
+  .eno-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .eno-text {
+    font-size: 14px;
+  }
+  
+  .chat-bubble {
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+  
+  .chatbot-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .message-content {
+    max-width: 85%;
+  }
+}
